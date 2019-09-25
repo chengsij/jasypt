@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: ${KAFKA_ADDRESS:localhost}
+          defaultBrokerPort: ${KAFKA_PORT:9092}
+          autoCreateTopics: ${KAFKA_AUTO_CREATE_TOPICS:false}
+          configuration:
+            client.id: jasypt-server
+      bindings:
+        filter-topic.destination: ${FILTER_TOPIC:filter-topic}
+        event-topic.destination: ${EVENT_TOPIC:event-topic}
+        dead-letter.destination: ${DEADLETTER:dead-letter}
